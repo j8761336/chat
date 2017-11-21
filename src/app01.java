@@ -1,11 +1,14 @@
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 //server 端的伺服程式
 public class app01 {
+
     public static void main(String args[]){
         try{
+            Scanner scn =new Scanner(System.in);
             ServerSocket svs =new ServerSocket(2525);
 
             System.out.println("等待客戶端的請求中...");
@@ -13,7 +16,7 @@ public class app01 {
             System.out.println("客戶端已連上本機...");
 
             OutputStream out =s.getOutputStream();
-            String str ="Honor shows the man.";
+            String str =scn.next();
             System.out.println("資料正在傳送中...");
             out.write(str.getBytes());
             out.close();
